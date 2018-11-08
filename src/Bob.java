@@ -1,3 +1,10 @@
+/*******************
+ Name: Benny Fields III
+ Date: 8 Nov 2018
+ Notes: Program that allows user to ask computer (Bob) a question
+        and based on the question ending/type will determine the
+        response.
+ *******************/
 import java.util.Scanner;
 
 public class Bob {
