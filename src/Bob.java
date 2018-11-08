@@ -9,12 +9,13 @@ import java.util.Scanner;
 
 public class Bob {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in); // create scanner
+        // create scanner
+        Scanner scanner = new Scanner(System.in);
         // variable more
         String more;
         // do while loop to create response based on question type and ending
         do {
-            System.out.println("Ask Bob a question.");
+            System.out.println("Talk to Bob.");
             String response;
             response = scanner.nextLine();
             if (response.endsWith("?")) {
