@@ -3,9 +3,10 @@ import java.util.Scanner;
 public class ControlFlowExercises {
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
 //  1. Loop Basics
 //  a. While
-//
 //  Create an integer variable i with a value of 5.
 //  Create a while loop that runs so long as i is less than or equal to 15
 //  Each loop iteration, output the current value of i, then increment i by one.
@@ -106,32 +107,64 @@ public class ControlFlowExercises {
 //          3      | 9       | 27
 //          4      | 16      | 64
 //          5      | 25      | 125
+        String more;
+        do {
+            System.out.println("Enter a number you would like to go up to: ");
 
-        System.out.println("Enter a number you would like to go up to: ");
+            int i, numLimit, square, cube;
+            numLimit = Integer.parseInt(scanner.nextLine());
 
-        int i, numLimit, square, cube;
-        Scanner input = new Scanner(System.in);
-        numLimit = input.nextInt();
+            System.out.println("Number | Squared | Cubed");
+            System.out.println("------ | ------- | -----");
 
-        System.out.println("Number | Squared | Cubed");
-        System.out.println("------ | ------- | -----");
+            for(i = 1; i <= numLimit; i++){
+                square = i * i;
+                cube = i * i * i;
+                System.out.printf(" %-5d | %-6d  | %d\n", i, square, cube);
+            }
+            System.out.println("Would you like to continue? ");
+            more = scanner.nextLine();
+        } while (more.equalsIgnoreCase("yes"));
 
-        for(i = 1; i <= numLimit; i++){
-            square = i * i;
-            cube = i * i * i;
-            System.out.printf(" %d     | %d       | %d\n", i, square, cube);
-        }
 
 
-        System.out.println("Would you like to continue? ");
-        Scanner input2 = new Scanner(System.in);
-        String more = input2.nextLine();
-        if (more.equalsIgnoreCase("yes")) {
-            System.out.println("Good Stuff!");
-        } else {
-            System.out.println("Too bad!");
-        }
 
+//   Convert given number grades into letter grades.
+//
+//   Prompt the user for a numerical grade from 0 to 100.
+//   Display the corresponding letter grade.
+//   Prompt the user to continue.
+//   Assume that the user will enter valid integers for the grades.
+//   The application should only continue if the user agrees to.
+//   Grade Ranges:
+//
+//   A : 100 - 88
+//   B : 87 - 80
+//   C : 79 - 67
+//   D : 66 - 60
+//   F : 59 - 0
+        String someMore;
+          do {
+              System.out.println("Enter a number from 0 to 100 for your grade: ");
+              int grade = Integer.parseInt(scanner.nextLine());
+
+              if (grade <= 100 && grade >= 88) {
+                  System.out.printf("You entered: %d. The grade is A!\n", grade);
+              } else if (grade <= 87 && grade >= 80) {
+                  System.out.printf("You entered: %d. The grade is B!\n", grade);
+              } else if (grade <= 79 && grade >= 67) {
+                  System.out.printf("You entered: %d. The grade is C!\n", grade);
+              } else if (grade <= 66 && grade >= 60) {
+                  System.out.printf("You entered: %d. The grade is D!\n", grade);
+              } else if (grade <= 59 && grade >= 0) {
+                  System.out.printf("You entered: %d. The grade is F!\n", grade);
+              } else {
+                  System.out.println("You didn't enter a grade!\n");
+              }
+              System.out.println("Would you like to continue? ");
+              someMore = scanner.nextLine();
+          } while (someMore.equalsIgnoreCase("yes"));
+            System.out.println("Have a great day!");
     }
 }
 
