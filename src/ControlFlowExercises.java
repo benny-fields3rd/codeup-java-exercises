@@ -107,27 +107,32 @@ public class ControlFlowExercises {
 //          3      | 9       | 27
 //          4      | 16      | 64
 //          5      | 25      | 125
+
         String more;
         do {
             System.out.println("Enter a number you would like to go up to: ");
-
+            // declare multiple variables
             int i, numLimit, square, cube;
+            // assign user input to numLimit and
+            // pulls ints out of string
             numLimit = Integer.parseInt(scanner.nextLine());
 
             System.out.println("Number | Squared | Cubed");
             System.out.println("------ | ------- | -----");
-
+            // for loop
             for(i = 1; i <= numLimit; i++){
+                // calculate square and cube
                 square = i * i;
                 cube = i * i * i;
-                System.out.printf(" %-5d | %-6d  | %d\n", i, square, cube);
+                // using printf and specify number of tabs/indents/spaces
+                System.out.printf(" %-5d | %-6d  | %d %n", i, square, cube);
             }
             System.out.println("Would you like to continue? ");
+            // assign user input to more
             more = scanner.nextLine();
+          // allows for both lowercase and uppercase
         } while (more.equalsIgnoreCase("yes"));
-
-
-
+        System.out.println("Have a great day!");
 
 //   Convert given number grades into letter grades.
 //
@@ -143,20 +148,22 @@ public class ControlFlowExercises {
 //   C : 79 - 67
 //   D : 66 - 60
 //   F : 59 - 0
+
         String someMore;
+
           do {
               System.out.println("Enter a number from 0 to 100 for your grade: ");
               int grade = Integer.parseInt(scanner.nextLine());
 
               if (grade <= 100 && grade >= 88) {
                   System.out.printf("You entered: %d. The grade is A!\n", grade);
-              } else if (grade <= 87 && grade >= 80) {
+              } else if (grade >= 80) {
                   System.out.printf("You entered: %d. The grade is B!\n", grade);
-              } else if (grade <= 79 && grade >= 67) {
+              } else if (grade >= 67) {
                   System.out.printf("You entered: %d. The grade is C!\n", grade);
-              } else if (grade <= 66 && grade >= 60) {
+              } else if (grade >= 60) {
                   System.out.printf("You entered: %d. The grade is D!\n", grade);
-              } else if (grade <= 59 && grade >= 0) {
+              } else if (grade >= 0) {
                   System.out.printf("You entered: %d. The grade is F!\n", grade);
               } else {
                   System.out.println("You didn't enter a grade!\n");
