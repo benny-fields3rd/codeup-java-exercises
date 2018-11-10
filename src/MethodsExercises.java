@@ -79,10 +79,10 @@ public class MethodsExercises {
         int input = sc.nextInt();
 
             if (input >= min && input <= max){
-                System.out.println("Your number is: " + input + ". It is within range. Good job!");
+                System.out.println("Your number is: " + input + " and is within range. Good job!");
                 return input;
             } else {
-                System.out.println("Your number is out of range!");
+                System.out.println("Your number is out of range! Try again please.");
                 return getInteger(min, max); // calling getInteger for invalid input
             }
     }
@@ -137,18 +137,20 @@ public class MethodsExercises {
     // method to perform dice roll and get random numbers
     // also used delayed print to simulate rolling action
     public static int rollDice(int input) throws Exception {
-        printWithDelays("Rolling", TimeUnit.MILLISECONDS, 300);
-
+        printWithDelays("Rolling\n", TimeUnit.MILLISECONDS, 300);
+//        System.out.println(" ");
         int dieOne = (int)(Math.random()*input) + 1;
         int dieTwo = (int)(Math.random()*input) + 1;
-        System.out.printf("\nDie one rolled %d and die two rolled %d.", dieOne, dieTwo);
+        System.out.printf("\nDie one is %d.", dieOne);
+        System.out.printf("\nDie two is %d.\n", dieTwo);
+        System.out.println("The total roll is: " + (dieOne + dieTwo));
         System.out.println("\nWould you like to roll again?");
         Scanner sc = new Scanner(System.in);
         String answer = sc.nextLine();
         if (answer.equalsIgnoreCase("yes")) {
             rollDice(input);
         } else {
-            System.out.println("Oh well. Thanks for playing");
+            System.out.println("OK..thanks for playing");
         }
         return 0;
     }
