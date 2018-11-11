@@ -29,8 +29,8 @@ public static void main(String[] args) throws Exception{
     // random number generator
     public static int getRandomIntegerBetweenRange(int min, int max)throws Exception {
         int randomInt = (int)(Math.random()*((max-min)+1))+min;
-        printWithDelays("Guessing Random Number\n", TimeUnit.MILLISECONDS, 150);
-        System.out.println(randomInt);
+        printWithDelays("Generating Random Number\n", TimeUnit.MILLISECONDS, 100);
+//        System.out.println(randomInt);
         return randomInt;
     } // end of getRandomIntegerBetweenRange method
 
