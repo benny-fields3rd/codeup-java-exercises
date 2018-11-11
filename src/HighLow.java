@@ -19,18 +19,20 @@ public class HighLow {
 //  Bonus***
 //      Keep track of how many guesses a user makes
 //      Set an upper limit on the number of guesses
-public static void main(String[] args) throws Exception{
 
+public static void main(String[] args) throws Exception{
+    // calling getRandomIntegerBetweenRange inside guessNumber method
     guessNumber(getRandomIntegerBetweenRange(1, 100));
 
-}
+} // end of main method
+
     // random number generator
     public static int getRandomIntegerBetweenRange(int min, int max)throws Exception {
         int randomInt = (int)(Math.random()*((max-min)+1))+min;
         printWithDelays("Guessing Random Number\n", TimeUnit.MILLISECONDS, 150);
         System.out.println(randomInt);
         return randomInt;
-    }
+    } // end of getRandomIntegerBetweenRange method
 
     // Ask user to guess the number and validate input against random number
     public static int guessNumber(int randomInt){
@@ -46,7 +48,7 @@ public static void main(String[] args) throws Exception{
         } else if (guessedInput == randomInt){
             System.out.printf("You guessed the number of %d!", randomInt);
         } return randomInt;
-    }
+    } // end of guessNumber method
 
     // delay print function
     // https://stackoverflow.com/questions/19882885/making-text-appear-delayed
@@ -56,5 +58,5 @@ public static void main(String[] args) throws Exception{
             System.out.print(ch);
             unit.sleep(delay);
         }
-    }
-}
+    } // end of printWithDelays method
+} //end of HighLow class
