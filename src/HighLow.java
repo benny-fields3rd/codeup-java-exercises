@@ -29,15 +29,15 @@ public static void main(String[] args) throws Exception{
     // random number generator
     public static int getRandomIntegerBetweenRange(int min, int max)throws Exception {
         int randomInt = (int)(Math.random()*((max-min)+1))+min;
-        printWithDelays("Generating Random Number\n", TimeUnit.MILLISECONDS, 100);
-//        System.out.println(randomInt);
+        printWithDelays("Generating a random number...\n", TimeUnit.MILLISECONDS, 100);
         return randomInt;
+
     } // end of getRandomIntegerBetweenRange method
 
     // Ask user to guess the number and validate input against random number
-    public static int guessNumber(int randomInt){
+    public static int guessNumber(int randomInt)throws Exception {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Guess a number: ");
+        System.out.println("Guess a number:");
         int guessedInput = sc.nextInt();
         if (guessedInput < randomInt) {
             System.out.println("higher..");
@@ -46,8 +46,16 @@ public static void main(String[] args) throws Exception{
             System.out.println("Lower...");
             return guessNumber(randomInt);
         } else if (guessedInput == randomInt){
-            System.out.printf("You guessed the number of %d!", randomInt);
-        } return randomInt;
+            System.out.printf("You guessed the number of %d!\n", randomInt);
+        }
+        System.out.println("Do you want to play again?");
+        String answer = sc.next();
+        if (answer.equalsIgnoreCase("yes")) {
+            guessNumber(getRandomIntegerBetweenRange(1, 100));
+        } else {
+            System.out.println("Oh well. Maybe next time.");
+        }
+            return 0;
     } // end of guessNumber method
 
     // delay print function

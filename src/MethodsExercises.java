@@ -126,7 +126,7 @@ public class MethodsExercises {
         System.out.println("Enter the number of sides for a pair of dice [1-6]: ");
         int input = sc.nextInt();
         sc.nextLine();
-        System.out.println("Would you like to roll [yes or no]?");
+        System.out.println("Would you like to roll [ yes or no ]?");
         String answer = sc.nextLine();
         if (answer.equalsIgnoreCase("yes")) {
             rollDice(input);
