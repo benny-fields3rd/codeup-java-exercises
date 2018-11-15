@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.lang.Math;
 
 public class HighLow {
-
+ public static int numberOfGuesses;
 //  Game Development 101****************************
 //      Welcome to the world of game development!
 //      You are going to build a high-low guessing game. Create a class named HighLow inside of src.
@@ -23,7 +23,6 @@ public class HighLow {
 public static void main(String[] args) throws Exception{
     // calling getRandomIntegerBetweenRange inside guessNumber method
     guessNumber(getRandomIntegerBetweenRange(1, 100));
-
 } // end of main method
 
     // random number generator
@@ -31,24 +30,30 @@ public static void main(String[] args) throws Exception{
         int randomInt = (int)(Math.random()*((max-min)+1))+min;
         printWithDelays("Generating a random number...\n", TimeUnit.MILLISECONDS, 100);
         return randomInt;
-
     } // end of getRandomIntegerBetweenRange method
 
     // Ask user to guess the number and validate input against random number
     public static int guessNumber(int randomInt)throws Exception {
+
         Scanner sc = new Scanner(System.in);
-        System.out.println("Guess a number:");
+        System.out.println("Guess a number:"); // ask user for number input
         int guessedInput = sc.nextInt();
-        if (guessedInput < randomInt) {
+
+        if (guessedInput < randomInt) { // logic based on input to tell user to go higher
             System.out.println("higher..");
+            numberOfGuesses++;
+            System.out.println(numberOfGuesses);
             return guessNumber(randomInt);
-        } else if (guessedInput > randomInt) {
+
+        } else if (guessedInput > randomInt) { // logic based on input to tell user to go lower
             System.out.println("Lower...");
+            numberOfGuesses++;
+            System.out.println(numberOfGuesses);
             return guessNumber(randomInt);
-        } else if (guessedInput == randomInt){
-            System.out.printf("You guessed the number of %d!\n", randomInt);
+        } else if (guessedInput == randomInt){ // if user guesses correctly, inform user
+            System.out.printf("You guessed the number of %d!%n", randomInt);
         }
-        System.out.println("Do you want to play again?");
+        System.out.println("Do you want to play again?"); // ask user to play again
         String answer = sc.next();
         if (answer.equalsIgnoreCase("yes")) {
             guessNumber(getRandomIntegerBetweenRange(1, 100));

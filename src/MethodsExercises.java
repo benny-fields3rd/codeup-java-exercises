@@ -7,15 +7,16 @@ public class MethodsExercises {
 
     public static void main(String[] args) throws Exception {
 
-        System.out.println("Adding: " + addition(1, 5));
-        System.out.println("Subtracting: " + subtraction(10, 5));
-        System.out.println("Multiplying: " + multiplication(4, 4));
-        System.out.println("Dividing: " + division(10, 5));
-        System.out.println("Modulus: " + modulus(18, 5));
+//        System.out.println("Adding: " + addition(1, 5));
+//        System.out.println("Subtracting: " + subtraction(10, 5));
+//        System.out.println("Multiplying: " + multiplication(4, 4));
+//        System.out.println("Dividing: " + division(10, 5));
+//        System.out.println("Modulus: " + modulus(18, 5));
 
-        factorial(getInteger(1, 10));
-        rollDiceAsk();
-
+//        factorial(getInteger(1, 10));
+//        rollDiceAsk();
+        int x = 5;
+        System.out.println(x > 2 ? x < 4 ? 10 : 8 : 7);
     }
 
 //  Basic Arithmetic
@@ -109,7 +110,7 @@ public class MethodsExercises {
         for(long i = 1; i <= input; i++) {
             factor *= i; // same as factor = factor * i
         }
-        System.out.println("The factor of " + input + " is " + factor);
+        System.out.printf("Also, the factor of %d is %d.\n",input, factor);
         return 0;
     }
 
@@ -123,15 +124,21 @@ public class MethodsExercises {
     // asking for user input for sides of dice and if they want to roll dice
     public static void rollDiceAsk() throws Exception {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the number of sides for a pair of dice [1-6]: ");
-        int input = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Would you like to roll [ yes or no ]?");
-        String answer = sc.nextLine();
-        if (answer.equalsIgnoreCase("yes")) {
-            rollDice(input);
+        System.out.println("Let's play a dice game. Press enter to play.");
+        String enter = sc.nextLine();
+        if (enter.equals("")) {
+            System.out.println("Enter the number of sides for a pair of dice [1-6]: ");
+            int input = sc.nextInt();
+            sc.nextLine();
+            System.out.println("Would you like to roll [ yes or no ]?");
+            String answer = sc.nextLine();
+            if (answer.equalsIgnoreCase("yes")) {
+                rollDice(input);
+            } else {
+                System.out.println("You didn't answer yes. Oh well, thanks for playing.");
+            }
         } else {
-            System.out.println("Oh well. Thanks for playing");
+            System.out.println("You didn't press enter. Oh well, maybe next time.");
         }
     }
     // method to perform dice roll and get random numbers
@@ -143,14 +150,14 @@ public class MethodsExercises {
         int dieTwo = (int)(Math.random()*input) + 1;
         System.out.printf("\nDie one is %d.", dieOne);
         System.out.printf("\nDie two is %d.\n", dieTwo);
-        System.out.println("The total roll is: " + (dieOne + dieTwo));
+        System.out.printf("The total roll is: %d.", (dieOne + dieTwo));
         System.out.println("\nWould you like to roll again?");
         Scanner sc = new Scanner(System.in);
         String answer = sc.nextLine();
         if (answer.equalsIgnoreCase("yes")) {
             rollDice(input);
         } else {
-            System.out.println("OK..thanks for playing");
+            System.out.println("You didn't answer yes. Oh well, thanks for playing");
         }
         return 0;
     }
