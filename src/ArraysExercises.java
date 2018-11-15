@@ -21,6 +21,9 @@ public class ArraysExercises {
     for (Person person : people) {
      System.out.println(person.getName());
     }
+    for (int i = 0; i < people.length; i++){
+        System.out.println(people[i].getName());
+    }
 
     people = addPerson(people,new Person("Joey")); // store in a variable to call it
         for (Person person : people) {
@@ -32,9 +35,9 @@ public class ArraysExercises {
 //
     }
 
-    public static Person[] addPerson(Person[] people, Person person){
-        Person[] people2 = Arrays.copyOf(people, people.length + 1);
-        people2[people.length] = person;
+    public static Person[] addPerson(Person[] personArr, Person person){
+        Person[] people2 = Arrays.copyOf(personArr, personArr.length + 1);
+        people2[personArr.length - 1] = person;
 //        System.out.println(Arrays.toString(people));
 //        System.out.println(Arrays.toString(people2));
         return people2;

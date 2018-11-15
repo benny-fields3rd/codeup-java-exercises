@@ -26,23 +26,60 @@ public class MoviesApplication {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Input input = new Input(scanner);
         askUser();
-        System.out.println("Enter your choice: ");
-        String input = new Input(scanner);
-
     }
 
-public static void askUser(){
-    System.out.println("What would you like to do?");
-    System.out.println("0 - exit");
-    System.out.println("1 - view all movies");
-    System.out.println("2 - view movies in the animated category");
-    System.out.println("3 - view movies in the drama category");
-    System.out.println("4 - view movies in the horror category");
-    System.out.println("5 - view movies in the scifi category");
-}
-public static void option0() {
+    public static void askUser(){
+        Input input = new Input(new Scanner(System.in));
+        Movie[] allMovies = MoviesArray.findAll();
+        String message;
+        message = "What would you like to do?\n";
+        message += "0 - exit\n";
+        message += "1 - view all movies\n";
+        message += "2 - view movies in the animated category\n";
+        message += "3 - view movies in the drama category\n";
+        message += "4 - view movies in the horror category\n";
+        message += "5 - view movies in the scifi category\n";
+
+    System.out.println(message);
+    System.out.println("Enter your choice: ");
+        int userAnswer = input.getInt(0, 5);
+        if (userAnswer == 1) {
+            for (Movie film : allMovies) {
+                System.out.println(film.getName());
+            }
+        } else if (userAnswer == 2) {
+            for (Movie film : allMovies) {
+                if (film.getCategory().equals("animated")) {
+                    System.out.println("Title: " + film.getName() + "\n Category: " + film.getCategory());
+                }
+            }
+        } else if (userAnswer == 3) {
+            for (Movie film : allMovies) {
+                if (film.getCategory().equals("drama")) {
+                    System.out.println("Title: " + film.getName() + "\n Category: " + film.getCategory());
+                }
+            }
+        } else if (userAnswer == 4) {
+            for (Movie film : allMovies) {
+                if (film.getCategory().equals("horror")) {
+                    System.out.println("Title: " + film.getName() + "\n Category: " + film.getCategory());
+                }
+            }
+        } else if (userAnswer == 5) {
+            for (Movie film : allMovies) {
+                if (film.getCategory().equals("scifi")) {
+                    System.out.println("Title: " + film.getName() + "\n Category: " + film.getCategory());
+                }
+            }
+        } else {
+            System.out.println("The end");
+        }
+
+
+
+
+
 
     }
 
