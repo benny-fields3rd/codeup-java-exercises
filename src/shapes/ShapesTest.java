@@ -8,11 +8,11 @@ public class ShapesTest {
     public static void main(String[] args) {
         Measurable myShape;
         myShape = new Rectangle(4, 5);
-        System.out.println("Rectangle has a area of: " + myShape.getArea());
+        System.out.println("Rectangle has an area of: " + myShape.getArea());
         System.out.println("Rectangle has a perimeter of: " + myShape.getPerimeter());
 
         myShape = new Square(4);
-        System.out.println("Square has a area of: " + myShape.getArea());
+        System.out.println("Square has an area of: " + myShape.getArea());
         System.out.println("Square has a perimeter of: " + myShape.getPerimeter());
 // create a variable of the type Rectangle named box1 and assign it a new instance of the Rectangle class with a width
 // of 4 and a length of 5
