@@ -26,6 +26,7 @@ public class MoviesApplication {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
         askUser();
     }
 
@@ -48,45 +49,71 @@ public class MoviesApplication {
         if (userAnswer == 1) {
             System.out.println("All movies are as follows: ");
             for (Movie film : allMovies) {
-                System.out.printf("Title: %s, Category: %s %n",film.getName(), film.getCategory());
-            }
+                System.out.printf("Title: %s --- Category: %s %n",film.getName(), film.getCategory());
+            } tryAgain();
         } else if (userAnswer == 2) {
             System.out.println("All movies in the animated category are: ");
             for (Movie film : allMovies) {
                 if (film.getCategory().equals("animated")) {
                     System.out.println("Title: " + film.getName());
                 }
-            }
+            } tryAgain();
         } else if (userAnswer == 3) {
             System.out.println("All movies in the drama category are: ");
             for (Movie film : allMovies) {
                 if (film.getCategory().equals("drama")) {
                     System.out.println("Title: " + film.getName());
                 }
-            }
+            } tryAgain();
         } else if (userAnswer == 4) {
             System.out.println("All movies in the horror category are: ");
             for (Movie film : allMovies) {
                 if (film.getCategory().equals("horror")) {
                     System.out.println("Title: " + film.getName());
                 }
-            }
+            } tryAgain();
         } else if (userAnswer == 5) {
             System.out.println("All movies in the scifi category are: ");
             for (Movie film : allMovies) {
                 if (film.getCategory().equals("scifi")) {
                     System.out.println("Title: " + film.getName());
                 }
-            }
+            } tryAgain();
         } else {
-            System.out.println("The end");
+            endGame();
         }
+    }
 
+    // method for asking user to try again
+    public static void tryAgain() {
+        Input input = new Input(new Scanner(System.in));
+        System.out.println("Do you want to try again? [ yes/no ]");
+        String more = input.getString();
+        if (more.equalsIgnoreCase("yes") || (more.equalsIgnoreCase("y"))) {
+            askUser();
+        } else {
+            endGame();
+        }
+    }
 
-
-
+    // method for ending game printout
+    public static void endGame(){
+        System.out.println("" +
+                "######## ##     ##    ###    ##    ## ##    ##  ######     ########  #######  ########  \n" +
+                "   ##    ##     ##   ## ##   ###   ## ##   ##  ##    ##    ##       ##     ## ##     ## \n" +
+                "   ##    ##     ##  ##   ##  ####  ## ##  ##   ##          ##       ##     ## ##     ## \n" +
+                "   ##    ######### ##     ## ## ## ## #####     ######     ######   ##     ## ########  \n" +
+                "   ##    ##     ## ######### ##  #### ##  ##         ##    ##       ##     ## ##   ##   \n" +
+                "   ##    ##     ## ##     ## ##   ### ##   ##  ##    ##    ##       ##     ## ##    ##  \n" +
+                "   ##    ##     ## ##     ## ##    ## ##    ##  ######     ##        #######  ##     ## \n\n" +
+                "########  ##          ###    ##    ## #### ##    ##  ######   #### \n" +
+                "##     ## ##         ## ##    ##  ##   ##  ###   ## ##    ##  #### \n" +
+                "##     ## ##        ##   ##    ####    ##  ####  ## ##        #### \n" +
+                "########  ##       ##     ##    ##     ##  ## ## ## ##   ####  ##  \n" +
+                "##        ##       #########    ##     ##  ##  #### ##    ##       \n" +
+                "##        ##       ##     ##    ##     ##  ##   ### ##    ##  #### \n" +
+                "##        ######## ##     ##    ##    #### ##    ##  ######   #### ");
 
 
     }
-
 }
