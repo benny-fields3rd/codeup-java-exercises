@@ -44,32 +44,38 @@ public class MoviesApplication {
     System.out.println(message);
     System.out.println("Enter your choice: ");
         int userAnswer = input.getInt(0, 5);
+
         if (userAnswer == 1) {
+            System.out.println("All movies are as follows: ");
             for (Movie film : allMovies) {
-                System.out.println(film.getName());
+                System.out.printf("Title: %s, Category: %s %n",film.getName(), film.getCategory());
             }
         } else if (userAnswer == 2) {
+            System.out.println("All movies in the animated category are: ");
             for (Movie film : allMovies) {
                 if (film.getCategory().equals("animated")) {
-                    System.out.println("Title: " + film.getName() + "\n Category: " + film.getCategory());
+                    System.out.println("Title: " + film.getName());
                 }
             }
         } else if (userAnswer == 3) {
+            System.out.println("All movies in the drama category are: ");
             for (Movie film : allMovies) {
                 if (film.getCategory().equals("drama")) {
-                    System.out.println("Title: " + film.getName() + "\n Category: " + film.getCategory());
+                    System.out.println("Title: " + film.getName());
                 }
             }
         } else if (userAnswer == 4) {
+            System.out.println("All movies in the horror category are: ");
             for (Movie film : allMovies) {
                 if (film.getCategory().equals("horror")) {
-                    System.out.println("Title: " + film.getName() + "\n Category: " + film.getCategory());
+                    System.out.println("Title: " + film.getName());
                 }
             }
         } else if (userAnswer == 5) {
+            System.out.println("All movies in the scifi category are: ");
             for (Movie film : allMovies) {
                 if (film.getCategory().equals("scifi")) {
-                    System.out.println("Title: " + film.getName() + "\n Category: " + film.getCategory());
+                    System.out.println("Title: " + film.getName());
                 }
             }
         } else {
