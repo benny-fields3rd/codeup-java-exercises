@@ -13,7 +13,7 @@ class TestMathOp extends MathOp2 { // Tests classes MathOp and MathOp2
 
   public static void main(String[] args) {
 
-    double firstNum, secondNum, sum;
+    double firstNum, secondNum, answer;
     char response;
     char operator;
     MathOp add = new MathOp();
@@ -34,20 +34,20 @@ class TestMathOp extends MathOp2 { // Tests classes MathOp and MathOp2
       operator = data.next().charAt(0);
 
       if(operator == '+') { // adds 1st and 2nd numbers
-        sum = add.MathAdd(firstNum, secondNum);
-        System.out.println("The answer is " + sum);
+        answer = add.MathAdd(firstNum, secondNum);
+        System.out.println("The answer is " + answer);
       }
       else if(operator == '-') { // subtracts 1st and 2nd numbers
-        sum = sub.MathSub(firstNum, secondNum);
-        System.out.println("The answer is " + sum);
+        answer = sub.MathSub(firstNum, secondNum);
+        System.out.println("The answer is " + answer);
       }
       else if(operator == '*') { // multiplies 1st and 2nd numbers
-        sum = mul.MathMul(firstNum, secondNum);
-        System.out.println("The answer is " + sum);
+        answer = mul.MathMul(firstNum, secondNum);
+        System.out.println("The answer is " + answer);
       }
       else if(operator == '/') { // divides 1st and 2nd numbers
-        sum = div.MathDiv(firstNum, secondNum);
-        System.out.println("The answer is " + sum);
+        answer = div.MathDiv(firstNum, secondNum);
+        System.out.println("The answer is " + answer);
       }
       else { // this will inform the user that they did not type in a correct operator
         System.out.println("\nSorry, you did not select either the +, -, *, or / operator");
